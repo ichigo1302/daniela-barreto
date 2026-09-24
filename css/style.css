@@ -672,6 +672,108 @@ main {
     text-decoration: underline;
 }
 
+.lead-form-section {
+    width: min(1200px, 90%);
+    margin: 0 auto;
+    padding: 0 0 80px;
+}
+
+.lead-form {
+    position: relative;
+    background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(255,249,243,0.92));
+    border: 1px solid rgba(154, 108, 72, 0.12);
+    border-radius: 32px;
+    padding: 38px 34px;
+    box-shadow: 0 28px 60px rgba(84, 60, 45, 0.10), inset 0 1px 0 rgba(255,255,255,0.9);
+    overflow: hidden;
+}
+
+.lead-form::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(208, 170, 127, 0.14), transparent 32%);
+    pointer-events: none;
+}
+
+.lead-form > * {
+    position: relative;
+    z-index: 1;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #3d2a22;
+    font-weight: 600;
+}
+
+.field span {
+    font-size: 0.92rem;
+    letter-spacing: 0.02em;
+    color: #5d4338;
+}
+
+.field-full {
+    grid-column: 1 / -1;
+}
+
+.field input,
+.field textarea {
+    width: 100%;
+    padding: 17px 18px;
+    border: 1px solid rgba(154, 108, 72, 0.16);
+    border-radius: 18px;
+    background: rgba(255,255,255,0.82);
+    color: #3d2a22;
+    font: inherit;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    box-shadow: inset 0 1px 2px rgba(79, 58, 44, 0.03);
+}
+
+.field textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.field input:focus,
+.field textarea:focus {
+    outline: none;
+    border-color: rgba(147, 99, 70, 0.6);
+    box-shadow: 0 0 0 4px rgba(216, 183, 153, 0.2), inset 0 1px 2px rgba(79,58,44,0.02);
+    transform: translateY(-1px);
+}
+
+.form-submit {
+    margin-top: 26px;
+    border: none;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #d8b08d 0%, #b97a4d 35%, #8d6346 100%);
+    color: #fff;
+    font: inherit;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 18px 32px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    box-shadow: 0 20px 38px rgba(117, 81, 58, 0.22);
+}
+
+.form-submit:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 24px 42px rgba(117, 81, 58, 0.26);
+    filter: brightness(1.02);
+}
+
 .whatsapp-section {
     width: min(1200px, 90%);
     margin: 0 auto;
@@ -973,6 +1075,16 @@ footer {
     justify-content: space-between;
     gap: 20px;
     font-size: 0.78rem;
+}
+
+@media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lead-form {
+        padding: 22px 18px;
+    }
 }
 
 @media (max-width: 1024px) {

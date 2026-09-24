@@ -71,3 +71,23 @@ testimonialsGrid.addEventListener('transitionend', () => {
 window.addEventListener('resize', () => setTestimonialsPosition(false));
 setTestimonialsPosition(false);
 startTestimonials();
+
+const leadForm = document.querySelector('.lead-form');
+
+if (leadForm) {
+    leadForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(leadForm);
+        const nome = formData.get('nome')?.toString().trim() || 'Não informado';
+        const telefone = formData.get('telefone')?.toString().trim() || 'Não informado';
+        const email = formData.get('email')?.toString().trim() || 'Não informado';
+        const objetivo = formData.get('objetivo')?.toString().trim() || 'Não informado';
+
+        const message = `Olá Daniela, quero agendar uma consulta.%0A%0ANome: ${encodeURIComponent(nome)}%0ATelefone/WhatsApp: ${encodeURIComponent(telefone)}%0AE-mail: ${encodeURIComponent(email)}%0AQual seu principal objetivo na consulta com a nutricionista?: ${encodeURIComponent(objetivo)}`;
+        const whatsappLink = `https://wa.me/5515981027918?text=${message}`;
+
+        window.open(whatsappLink, '_blank', 'noopener,noreferrer');
+        leadForm.reset();
+    });
+}
