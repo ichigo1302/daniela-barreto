@@ -44,7 +44,7 @@ const setTestimonialsPosition = (withTransition) => {
     const cardWidth = firstCard.getBoundingClientRect().width + gap;
 
     testimonialsGrid.style.transform = `translateX(-${testimonialIndex * cardWidth}px)`;
-    testimonialsGrid.style.transition = withTransition ? 'transform 0.7s ease' : 'none';
+    testimonialsGrid.style.transition = withTransition ? 'transform 1s ease' : 'none';
 };
 
 const moveTestimonials = () => {
@@ -58,7 +58,7 @@ const startTestimonials = () => {
     }
 
     window.clearInterval(testimonialTimer);
-    testimonialTimer = window.setInterval(moveTestimonials, 3500);
+    testimonialTimer = window.setInterval(moveTestimonials, 5000);
 };
 
 testimonialsGrid.addEventListener('transitionend', () => {
